@@ -8,6 +8,9 @@
 
 'use strict';
 
+var env = require('../lib/environment');
+var transfer = require('../lib/transfer');
+var docs = require('./data/records');
 /*
   ======== A Handy Little Nodeunit Reference ========
   https://github.com/caolan/nodeunit
@@ -31,8 +34,33 @@
 var tests = {
 
   setUp: function(done) {
-    // setup here
+    env.initConfig(require('../conf'), true);
     done();
+  },
+
+  generateFileList: function(test) {
+
+    var fn = function(err, results) {
+      console.log(err, results);
+      test.done();
+    };
+
+    transfer.generateFileList(docs, fn);
+  },
+
+  toAmazonS3: function(test) {
+
+    var fn = function(err, results) {
+      console.log(err, results);
+      test.done();
+    };
+
+    var putObjects = function(err, fileList) {
+      test.ifError(err);
+      transfer.toAmazonS3(fileList, fn);
+    };
+
+    transfer.generateFileList(docs, putObjects);
   }
 };
 

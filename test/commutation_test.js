@@ -8,9 +8,9 @@
 
 'use strict';
 
-var path = require('path');
-var s3cmd = require('../lib/s3cmdwrapper');
 var env = require('../lib/environment');
+var commutatoin = require('../lib/commutation');
+var records = require('./data/records');
 /*
   ======== A Handy Little Nodeunit Reference ========
   https://github.com/caolan/nodeunit
@@ -31,14 +31,6 @@ var env = require('../lib/environment');
     test.ifError(value)
 */
 
-var fn = function(test) {
-  return function(err, data) {
-    test.ifError(err);
-    console.log(err, data);
-    test.done();
-  };
-};
-
 var tests = {
 
   setUp: function(done) {
@@ -46,21 +38,25 @@ var tests = {
     done();
   },
 
-  get: function(test) {
-    test.expect(1);
-    var dest = path.join(__dirname, '../build/readme.txt');
-    s3cmd.get('/readme.txt', dest, fn(test));
+  preview: function(test) {
+
+    var fn = function(record) {
+      var previews = commutatoin.preview(record);
+      console.log(previews);
+    };
+    records.forEach(fn);
+    test.done();
+
   },
 
-  put: function(test) {
-    test.expect(1);
-    var src = path.join(__dirname, 'data/object');
-    s3cmd.put('/path/to/object', src, fn(test));
-  },
+  packages: function(test) {
 
-  delete: function(test) {
-    test.expect(1);
-    s3cmd.delete('/path/to/object', fn(test));
+    var fn = function(record) {
+      var previews = commutatoin.packages(record);
+      console.log(previews);
+    };
+    records.forEach(fn);
+    test.done();
   }
 };
 

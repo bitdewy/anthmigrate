@@ -1,0 +1,8 @@
+{
+  "script": "./cron.js",
+  "name": "anthCraft-migrate",
+  "instances": "max",
+  "fileError": "./logs/anthCraft-migrate.log",
+  "fileOutput": "./logs/anthCraft-migrate.log",
+  "pidFile": "./logs/pids/anthCraft-migrate.worker_"
+}

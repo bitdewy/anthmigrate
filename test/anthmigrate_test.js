@@ -33,15 +33,7 @@ var anthmigrate = require('../lib/anthmigrate');
 var tests = {
 
   setUp: function(done) {
-    // setup here
     done();
-  },
-
-  awesome: function(test) {
-    test.expect(1);
-    // tests here
-    test.equal(anthmigrate.awesome(), 'awesome', 'should be awesome.');
-    test.done();
   },
 
   initConfig: function(test) {
@@ -56,7 +48,7 @@ var tests = {
     var env = anthmigrate.initConfig(config);
     test.equal(env.Bucket, config.Bucket, '');
     test.equal(env.mongo, config.mongo, '');
-    
+
     config = {
       Bucket: 'whatever',
       mongo: 'whatever'

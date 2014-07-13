@@ -11,14 +11,14 @@
 var configuration = {
   Bucket: 'c-launcher-staticsource-mfs-test-20140708',
   mongodb: 'mongodb://10.60.145.18:27017/anthcraft',
-  property: path.join(__dirname, 'settings.propertis'),
+  property: path.join(__dirname, 'settings.properties'),
   relpath: {
     root: '/home/webadmin/anthCraft-dist/public/resources',
     theme: 'themes',
     preview: 'preview',
     thumbnails: 'thumbnail'
   },
-  interval: '* * * * * *'
+  interval: '00 * * * * *'
 };
 
 exports = module.exports = configuration;

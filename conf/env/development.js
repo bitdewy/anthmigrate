@@ -13,14 +13,14 @@ var path = require('path');
 var configuration = {
   Bucket: 'bitdewy',
   mongodb: 'mongodb://admin:123@10.127.129.88:27017/anthcraft',
-  property: path.join(__dirname, 'settings.propertis'),
+  property: path.join(__dirname, 'settings.properties'),
   relpath: {
     root: path.join(__dirname, '../../build'),
     theme: 'themes',
     preview: 'preview',
     thumbnails: 'thumbnail'
   },
-  interval: '* * * * * *'
+  interval: '00 * * * * *'
 };
 
 exports = module.exports = configuration;

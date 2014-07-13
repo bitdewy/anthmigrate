@@ -5,7 +5,7 @@
  * Copyright (c) 2014 bitdewy
  * Licensed under the MIT license.
  */
- 
+
 'use strict';
 
 var environment = require('../lib/environment');
@@ -46,10 +46,10 @@ var tests = {
       initConfig: 'initConfig'
     };
 
-    var env = environment.initConfig(config);
+    var env = environment.initConfig(config, true);
     test.equal(env.Bucket, config.Bucket, '');
     test.equal(env.mongo, config.mongo, '');
-    
+
     config = {
       Bucket: 'whatever',
       mongo: 'whatever'
