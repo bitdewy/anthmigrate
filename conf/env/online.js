@@ -8,8 +8,10 @@
 
 'use strict';
 
+var path = require('path');
+
 var configuration = {
-  Bucket: 'c-launcher-staticsource-mfs-test-20140708',
+  Bucket: 'c-launcher-staticsource-mfs-20140708',
   mongodb: 'mongodb://10.60.145.18:27017/anthcraft',
   property: path.join(__dirname, 'settings.properties'),
   relpath: {
