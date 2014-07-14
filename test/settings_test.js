@@ -8,7 +8,7 @@
 
 'use strict';
 
-var environment = require('../lib/environment');
+var settings = require('../lib/settings');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -46,17 +46,17 @@ var tests = {
       initConfig: 'initConfig'
     };
 
-    var env = environment.initConfig(config, true);
-    test.equal(env.Bucket, config.Bucket, '');
-    test.equal(env.mongo, config.mongo, '');
+    var s = settings.initConfig(config, true);
+    test.equal(s.Bucket, config.Bucket, '');
+    test.equal(s.mongo, config.mongo, '');
 
     config = {
       Bucket: 'whatever',
       mongo: 'whatever'
     };
 
-    test.notEqual(env.Bucket, config.Bucket, '');
-    test.notEqual(env.mongo, config.mongo, '');
+    test.notEqual(s.Bucket, config.Bucket, '');
+    test.notEqual(s.mongo, config.mongo, '');
     test.done();
   }
 };

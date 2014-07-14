@@ -8,9 +8,10 @@
 
 'use strict';
 
-var env = require('../lib/environment');
+var settings = require('../lib/settings');
 var transfer = require('../lib/transfer');
 var docs = require('./data/records');
+
 /*
   ======== A Handy Little Nodeunit Reference ========
   https://github.com/caolan/nodeunit
@@ -34,7 +35,7 @@ var docs = require('./data/records');
 var tests = {
 
   setUp: function(done) {
-    env.initConfig(require('../conf'), true);
+    settings.initConfig(require('../conf'), true);
     done();
   },
 

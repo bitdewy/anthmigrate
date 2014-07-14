@@ -8,9 +8,10 @@
 
 'use strict';
 
-var env = require('../lib/environment');
-var commutatoin = require('../lib/commutation');
+var settings = require('../lib/settings');
+var commutation = require('../lib/commutation');
 var records = require('./data/records');
+
 /*
   ======== A Handy Little Nodeunit Reference ========
   https://github.com/caolan/nodeunit
@@ -34,14 +35,14 @@ var records = require('./data/records');
 var tests = {
 
   setUp: function(done) {
-    env.initConfig(require('../conf'), true);
+    settings.initConfig(require('../conf'), true);
     done();
   },
 
   preview: function(test) {
 
     var fn = function(record) {
-      var previews = commutatoin.preview(record);
+      var previews = commutation.preview(record);
       console.log(previews);
     };
     records.forEach(fn);
@@ -52,8 +53,58 @@ var tests = {
   packages: function(test) {
 
     var fn = function(record) {
-      var previews = commutatoin.packages(record);
-      console.log(previews);
+      var packs = commutation.packages(record);
+      console.log(packs);
+    };
+    records.forEach(fn);
+    test.done();
+
+  },
+
+  thumbnails: function(test) {
+
+    var fn = function(record) {
+      var pictures = commutation.thumbnails(record);
+      console.log(pictures);
+    };
+    records.forEach(fn);
+    test.done();
+
+  },
+
+  injectedPackages: function(test) {
+
+    var fn = function(record) {
+      var packs = commutation.injectedPackages(record);
+      console.log(packs);
+    };
+    records.forEach(fn);
+    test.done();
+  },
+
+  roundedCornerThumbnails: function(test) {
+
+    var fn = function(record) {
+      var pictures = commutation.roundedCornerThumbnails(record);
+      console.log(pictures);
+    };
+    records.forEach(fn);
+    test.done();
+  },
+
+  compressedThumbnails: function(test) {
+    var fn = function(record) {
+      var pictures = commutation.compressedThumbnails(record);
+      console.log(pictures);
+    };
+    records.forEach(fn);
+    test.done();
+  },
+
+  compressedPreviews: function(test) {
+    var fn = function(record) {
+      var pictures = commutation.compressedPreviews(record);
+      console.log(pictures);
     };
     records.forEach(fn);
     test.done();

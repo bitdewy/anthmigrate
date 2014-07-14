@@ -10,7 +10,8 @@
 
 var path = require('path');
 var s3cmd = require('../lib/s3cmdwrapper');
-var env = require('../lib/environment');
+var settings = require('../lib/settings');
+
 /*
   ======== A Handy Little Nodeunit Reference ========
   https://github.com/caolan/nodeunit
@@ -42,7 +43,7 @@ var fn = function(test) {
 var tests = {
 
   setUp: function(done) {
-    env.initConfig(require('../conf'), true);
+    settings.initConfig(require('../conf'), true);
     done();
   },
 

@@ -45,17 +45,17 @@ var tests = {
       initConfig: 'initConfig'
     };
 
-    var env = anthmigrate.initConfig(config);
-    test.equal(env.Bucket, config.Bucket, '');
-    test.equal(env.mongo, config.mongo, '');
+    var settings = anthmigrate.initConfig(config);
+    test.equal(settings.Bucket, config.Bucket, '');
+    test.equal(settings.mongo, config.mongo, '');
 
     config = {
       Bucket: 'whatever',
       mongo: 'whatever'
     };
 
-    test.notEqual(env.Bucket, config.Bucket, '');
-    test.notEqual(env.mongo, config.mongo, '');
+    test.notEqual(settings.Bucket, config.Bucket, '');
+    test.notEqual(settings.mongo, config.mongo, '');
     test.done();
   }
 };
