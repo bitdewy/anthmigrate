@@ -9,7 +9,7 @@
 'use strict';
 
 var path = require('path');
-var s3cmd = require('../lib/s3cmdwrapper');
+var s3 = require('../lib/s3');
 var settings = require('../lib/settings');
 
 /*
@@ -50,18 +50,18 @@ var tests = {
   get: function(test) {
     test.expect(1);
     var dest = path.join(__dirname, '../build/readme.txt');
-    s3cmd.get('/readme.txt', dest, fn(test));
+    s3.get('readme.txt', dest, fn(test));
   },
 
   put: function(test) {
     test.expect(1);
     var src = path.join(__dirname, 'data/object');
-    s3cmd.put('/path/to/object', src, fn(test));
+    s3.put('path/to/object', src, fn(test));
   },
 
   delete: function(test) {
     test.expect(1);
-    s3cmd.delete('/path/to/object', fn(test));
+    s3.delete('path/to/object', fn(test));
   }
 };
 

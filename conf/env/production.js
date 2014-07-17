@@ -11,8 +11,9 @@
 var path = require('path');
 
 var configuration = {
-  Bucket: 'c-launcher-staticsource-mfs-test-20140708',
-  mongodb: 'mongodb://10.60.145.18:27017/anthcraft',
+  bucket: 'c-launcher-staticsource-mfs-test-20140708',
+  region: 'ap-southeast-1',
+  mongodb: 'mongodb://10.52.201.81:27017/anthcraft',
   property: path.join(__dirname, 'settings.properties'),
   relpath: {
     root: '/home/webadmin/anthCraft-dist/public/resources',

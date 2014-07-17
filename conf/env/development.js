@@ -11,7 +11,8 @@
 var path = require('path');
 
 var configuration = {
-  Bucket: 'bitdewy',
+  bucket: 'c-launcher-staticsource-mfs-test-20140708',
+  region: 'ap-southeast-1',
   mongodb: 'mongodb://admin:123@10.127.129.88:27017/anthcraft',
   property: path.join(__dirname, 'settings.properties'),
   relpath: {
