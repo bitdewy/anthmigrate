@@ -21,8 +21,8 @@ var configuration = {
     preview: 'preview',
     thumbnails: 'thumbnail'
   },
-  interval: '00 * * * * *',
-  count: 10
+  interval: '*/6 * * * * *',
+  count: 1
 };
 
 exports = module.exports = configuration;
