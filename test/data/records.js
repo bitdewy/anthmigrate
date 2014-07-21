@@ -41,6 +41,7 @@ var records = [{
     '/2/path/to/desktop.jpg',
     '/2/path/to/widget.jpg'
   ],
+  compressedPreviews: [],
   packageFile: [{
     file: '/2/path/to/theme.apk'
   },{
